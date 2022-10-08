@@ -54,6 +54,7 @@ function ConvertTo-Nickname {
         $Nickname
     }
 }
+
 function ConvertTo-ChannelName {
     [CmdletBinding()]
     param (
