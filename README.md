@@ -11,4 +11,4 @@
 
 ## Modules
 + [BurntToast](https://www.powershellgallery.com/packages/BurntToast/)
-+ [Selenium.WebDriver](https://www.nuget.org/packages/Selenium.WebDriver) (nupkg\lib\netXX\)
++ [Selenium.WebDriver](https://www.nuget.org/packages/Selenium.WebDriver) (nupkg/lib/netXX/)
