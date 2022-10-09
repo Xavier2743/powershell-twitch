@@ -19,12 +19,12 @@
 
 #### ConvertTo-Time (ctt)
 ```powershell
-ConvertTo-Time 10   # 00:01:50
+ConvertTo-Time 10    # 00:01:50
 ```
 
 #### ConvertTo-Segment (cts)
 ```powershell
-ConvertTo-Segment 1:10:50   # 425
+ConvertTo-Segment 1:10:50    # 425
 ```
 
 ### Download
@@ -45,6 +45,16 @@ ConvertTo-Segment 1:10:50   # 425
 if it's possible, use 1, 2 or 3
 
 ### Name
+
+#### ConvertTo-Nickname
+```powershell
+ConvertTo-Nickname joeykaotyk    # joey
+```
+
+#### ConvertTo-ChannelName
+```powershell
+ConvertTo-ChannelName joey    # joeykaotyk
+```
 
 ### Notification
 
