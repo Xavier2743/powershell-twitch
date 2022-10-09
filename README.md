@@ -147,7 +147,9 @@ Get-TwitchVodInfo '1511303463'
     # https://d3vd9lfkzbru3h.cloudfront.net/799d66c6360a54f5149e_jd_onlymusic_39695350135_1663765189/chunked/index-dvr.m3u8
     ```
 4. Streams Charts url + date(UTC)
-    Date format: dd MMM yyyy, HH:mm (If you don't know what it is, just copy the text after 'the start time:' on the Streams Charts website.)
+
+    Date format: dd MMM yyyy, HH:mm\
+    (If you don't know what it is, just copy the text after 'the start time:' on the Streams Charts website.)
     ```powershell
     Get-TwitchVodUrl 'https://streamscharts.com/channels/jd_onlymusic/streams/39695350135' '21 Sep 2022, 12:59'
 
