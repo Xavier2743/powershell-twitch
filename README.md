@@ -19,16 +19,12 @@
 
 #### ConvertTo-Time (ctt)
 ```powershell
-ConvertTo-Time 10
-
-# 00:01:50
+ConvertTo-Time 10   # 00:01:50
 ```
 
 #### ConvertTo-Segment (cts)
 ```powershell
-ConvertTo-Segment 1:10:50
-
-# 425
+ConvertTo-Segment 1:10:50   # 425
 ```
 
 ### Download
@@ -39,7 +35,7 @@ ConvertTo-Segment 1:10:50
 
 ### Info
 
-Get-TwitchVodUrl (gvu)
+#### Get-TwitchVodUrl (gvu)
 1. Nickname (only on live stream)
 2. Vod id (vod id or video url)
 3. Twitch Tracker url
