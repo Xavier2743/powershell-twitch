@@ -19,14 +19,14 @@
 
 ConvertTo-Time (ctt)
 ```powershell
-ctt 10
+ConvertTo-Time 10
 
 # 00:01:50
 ```
 
 ConvertTo-Segment (cts)
 ```powershell
-cts 1:10:50
+ConvertTo-Segment 1:10:50
 
 # 425
 ```
