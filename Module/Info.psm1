@@ -116,17 +116,19 @@ function Get-TwitchVodUrl {
                 $VodId = $_.Split('/')[-1]
                 $VodInfo = Get-TwitchVodInfo $VodId
                 $VodType = $VodInfo.type
+                Write-Verbose "[$((Get-Date).ToString('G'))] Vod type is $VodType."
                 $VodTempUrl = $VodInfo.thumbnail_url.Split('/')
-                Write-Verbose "[$((Get-Date).ToString('G'))] Domain is $($VodTempUrl[4])."
-                Write-Verbose "[$((Get-Date).ToString('G'))] Base url is $($VodTempUrl[5])."
+                $VodDomain = $VodTempUrl[4]
+                Write-Verbose "[$((Get-Date).ToString('G'))] Domain is $VodDomain."
+                $VodBaseUrl = $VodTempUrl[5]
+                Write-Verbose "[$((Get-Date).ToString('G'))] Base url is $VodBaseUrl."
                 if ($VodType -eq "archive") {
-                    $VodUrl = "https://$($VodTempUrl[4]).cloudfront.net/$($VodTempUrl[5])/chunked/index-dvr.m3u8"
+                    $VodUrl = "https://$VodDomain.cloudfront.net/$VodBaseUrl/chunked/index-dvr.m3u8"
                 }
                 else {
-                    $VodUrl = "https://$($VodTempUrl[4]).cloudfront.net/$($VodTempUrl[5])/chunked/highlight-$VodId.m3u8"
+                    $VodUrl = "https://$VodDomain.cloudfront.net/$VodBaseUrl/chunked/highlight-$VodId.m3u8"
                 }
                 if (Test-ExistingFile $VodUrl) {
-                    Write-Verbose "[$((Get-Date).ToString('G'))] Vod url is existent."
                     return $VodUrl
                 }
                 else {
@@ -140,8 +142,6 @@ function Get-TwitchVodUrl {
                 $StreamId = $Matches.StreamId
                 $Arg1 += " +00:00"
                 $InputDate = [System.DateTimeOffset]::ParseExact($Arg1, 'dd MMM yyyy, HH:mm K', $null)
-                Write-Verbose "[$((Get-Date).ToString('G'))] Input date (UTC) is $($InputDate.ToString('G'))."
-                Write-Verbose "[$((Get-Date).ToString('G'))] Input date (Local) is $($InputDate.LocalDateTime.ToString('G'))."
             }
             { $Arg1 -match "\d{11}" } {
                 Write-Verbose "[$((Get-Date).ToString('G'))] Nickname, Stream id and date"
@@ -170,8 +170,6 @@ function Get-TwitchVodUrl {
                 elseif ($InputDate -gt $Now -and $AutoYear) {
                     $InputDate = $InputDate.AddYears(-1)
                 }
-                Write-Verbose "[$((Get-Date).ToString('G'))] Input date (UTC) is $($InputDate.ToString('G'))."
-                Write-Verbose "[$((Get-Date).ToString('G'))] Input date (Local) is $($InputDate.LocalDateTime.ToString('G'))."
             }
             { $Arg0 -match $TwitchTrackerPattern } {
                 Write-Verbose "[$((Get-Date).ToString('G'))] Twitch Tracker url"
@@ -233,6 +231,8 @@ function Get-TwitchVodUrl {
             }
         }
         else {
+            Write-Verbose "[$((Get-Date).ToString('G'))] Input date (UTC) is $($InputDate.ToString('G'))."
+            Write-Verbose "[$((Get-Date).ToString('G'))] Input date (Local) is $($InputDate.LocalDateTime.ToString('G'))."
             $VodUrls = @()
             for ($Second = 0; $Second -lt 60; $Second++) {
                 $DateUTC = $InputDate.AddSeconds($Second)
@@ -244,7 +244,6 @@ function Get-TwitchVodUrl {
                     $VodUrls += "$Domain$HashedBaseUrl`_$BaseUrl/chunked/index-dvr.m3u8"
                 }
             }
-            # $VodUrls > '123.txt'
             $Collections = [System.Collections.Concurrent.ConcurrentBag[string]]::new()
             $VodUrls | ForEach-Object -ThrottleLimit 360 -Parallel {
                 $Response = Invoke-WebRequest -URI $_ -Method Head -SkipHttpErrorCheck -TimeoutSec 10 -ErrorAction Continue
