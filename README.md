@@ -53,7 +53,7 @@ Get-TwitchUserInfo 'xqc'
 # created_at        : 2014-09-12 23:50:05
 ```
 
-### Get-TwitchStreamInfo (gsi)
+#### Get-TwitchStreamInfo (gsi)
 ```powershell
 Get-TwitchStreamInfo 'xhibaoger'
 
