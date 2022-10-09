@@ -17,14 +17,14 @@
 
 ### Date and Segment
 
-ConvertTo-Time (ctt)
+#### ConvertTo-Time (ctt)
 ```powershell
 ConvertTo-Time 10
 
 # 00:01:50
 ```
 
-ConvertTo-Segment (cts)
+#### ConvertTo-Segment (cts)
 ```powershell
 ConvertTo-Segment 1:10:50
 
