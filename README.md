@@ -18,8 +18,18 @@
 ### Date and Segment
 
 ConvertTo-Time (ctt)
+```powershell
+ctt 10
+
+# 00:01:50
+```
 
 ConvertTo-Segment (cts)
+```powershell
+cts 1:10:50
+
+# 425
+```
 
 ### Download
 
