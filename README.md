@@ -5,8 +5,8 @@
 + Streamlink (scoop)
 + curl (scoop)
 + Wget (scoop)
-+ [N_m3u8DL](https://github.com/nilaoda/N_m3u8DL-CLI)
-+ [TwitchDownloaderCLI](https://github.com/lay295/TwitchDownloader)
++ [N_m3u8DL](nilaoda/N_m3u8DL-CLI)
++ [TwitchDownloaderCLI](lay295/TwitchDownloader)
 + ~~[ChromeDriver](https://sites.google.com/chromium.org/driver/downloads?authuser=0)~~
 
 ## Modules
