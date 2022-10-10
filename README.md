@@ -5,7 +5,7 @@
 + Streamlink (scoop)
 + curl (scoop)
 + Wget (scoop)
-+ [N_m38DL](https://github.com/nilaoda/N_m3u8DL-CLI)
++ [N_m3u8DL](https://github.com/nilaoda/N_m3u8DL-CLI)
 + [TwitchDownloaderCLI](https://github.com/lay295/TwitchDownloader)
 + ~~[ChromeDriver](https://sites.google.com/chromium.org/driver/downloads?authuser=0)~~
 
@@ -28,6 +28,41 @@ ConvertTo-Segment 1:10:50    # 425
 ```
 
 ### Download
+
+#### Get-m3u8DL (gm3)
+
+Use N_m3u8DL to download the live ts file.
+```powershell
+Get-m3u8DL 'xqc'
+```
+
+#### Get-Streamlink (gs)
+
+Use Streamlink to download the live ts file.
+```powershell
+Get-Streamlink 'xqc'
+```
+
+#### Get-FFmpeg (gff)
+
+Use FFmpeg to download the live ts file.
+```powershell
+Get-FFmpeg 'xqc'
+```
+
+#### Get-TwitchTsSegment (gts)
+
+Download and combine the all vod segment and download the chat.
+```powershell
+Get-TwitchTsSegment 'xqc'
+```
+
+#### Get-TwitchChat (gtc)
+
+Use TwitchDownloaderCLI to download the chat.
+```powershell
+Get-TwitchChat '1511303463'
+```
 
 ### FFmpeg
 
